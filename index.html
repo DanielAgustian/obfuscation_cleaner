@@ -28,25 +28,29 @@
     </main>
   <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
 	<script>
-    $('#clean_them_btn').click(function(){
-      let value = $('textarea[name="text"]').val();
-      value = value.replaceAll('#0', '    #0');
-      let clean = value.replaceAll('\n#', '\n    #');
+    $(function(){
+      $('#clean_them_btn').click(function(){
+        let value = $('textarea[name="text"]').val();
+        value = value.replaceAll('#0', '    #0');
+        let clean = value.replaceAll('\n#', '\n    #');
 
-      $('textarea[name="result"]').val(clean);
-    })
-    $('#clear_all_text_btn').click(function(){
-      $('textarea').val('');
-    })
-    $('#copy_text').click(function(){
-      let result = $('textarea[name="result"]').val();
-      navigator.clipboard.writeText(result).then(function(){
-        window.alert("TEXT COPIED");
+        $('textarea[name="result"]').val(clean);
+      })
+      $('#clear_all_text_btn').click(function(){
+        $('textarea').val('');
+      })
+      $('#copy_text').click(function(){
+        let result = $('textarea[name="result"]').val();
+        navigator.clipboard.writeText(result).then(function(){
+          window.alert("TEXT COPIED");
 
 
-      });
-      console.log(result);
+        });
+        console.log(result);
+      })
+
     })
+    
   </script>
   </body>
 </html>
