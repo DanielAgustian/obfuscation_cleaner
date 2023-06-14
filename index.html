@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clean Obsfucation Stacktrace</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <h1>Clean Obsfucation Dart</h1>  
+        <h3>Obfuscated Stacktrace</h3>
+        <textarea name="text" id="" cols="30" rows="10" style="width: 500px"></textarea>
+        <div class="display: blockl">
+          <button id="clean_them_btn">Clean them!</button>
+        </div>
+        <br>
+        <br>
+        <h3>Result</h3>
+        <textarea name="result" id="" cols="30" rows="10" style="width: 500px"></textarea>
+        <div style="display: flex; ">
+            <button id="clear_all_text_btn">Clean All Text</button>
+            <div style="width:20px"></div>
+            <button id="copy_text">Copy Text</button>
+        </div>
+    </main>
+  <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+	<script>
+    $('#clean_them_btn').click(function(){
+      let value = $('textarea[name="text"]').val();
+      value = value.replaceAll('#0', '    #0');
+      let clean = value.replaceAll('\n#', '\n    #');
+
+      $('textarea[name="result"]').val(clean);
+    })
+    $('#clear_all_text_btn').click(function(){
+      $('textarea').val('');
+    })
+    $('#copy_text').click(function(){
+      let result = $('textarea[name="result"]').val();
+      navigator.clipboard.writeText(result).then(function(){
+        window.alert("TEXT COPIED");
+
+
+      });
+      console.log(result);
+    })
+  </script>
+  </body>
+</html>
